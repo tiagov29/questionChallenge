@@ -1,9 +1,11 @@
-const question = document.querySelector("#question");
-const choices = Array.from(document.querySelectorAll(".choice-text"));
-const progressText = document.querySelector("#progressText");
-const scoreText = document.querySelector("#score");
-const progressBarFull = document.querySelector("#progressBarFull");
-const out = document.querySelector("#out");
+import {
+  scoreText,
+  question,
+  choices,
+  progressBarFull,
+  out,
+  progressText,
+} from "../components";
 import { questions } from "../db/questions";
 
 let currentQuestion = {};
@@ -55,7 +57,6 @@ const getNewQuestion = () => {
   });
 
   level++;
-  //   availableQuestions.splice(questionIndex, 1);
 
   acceptingAnswers = true;
 };
