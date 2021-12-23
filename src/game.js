@@ -1,11 +1,41 @@
-const question = document.querySelector("#question");
-const choices = Array.from(document.querySelectorAll(".choice-text"));
-const progressText = document.querySelector("#progressText");
-const scoreText = document.querySelector("#score");
-const progressBarFull = document.querySelector("#progressBarFull");
-const out = document.querySelector("#out");
 import { questions } from "../db/questions";
+import {
+  question,
+  progressText,
+  scoreText,
+  progressBarFull,
+  choices,
+  out,
+} from "../components/index";
 
+
+const queStion =   {
+    question: "undefined happen in javascript when",
+    choices:{choice1: "a variable is not defined",
+    choice2: "a variable is defined two times",
+    choice3: "a variable is defined by = ''",
+    choice4: "a variable is NaN"},
+    answer: 1,
+  },
+
+class Question {
+  constructor(question, choices, answer) {
+    this.question = `<h1 id="question">${question}</h1>`;
+    this.container = document.querySelector('#game');
+    this.choices = choices;
+    this.answer = answer;
+  }
+
+  generateQuestion() {
+      this.choices.forEach((choice,index) => 
+      container.innerHTML += `<div class="choice-container">
+      <p class="choice-prefix">${index+1}</p>
+      <p class="choice-text" data-number="1">${choice}</p>
+    </div>`)
+
+  }
+}
+new Question(queStion,queStion.choices,queStion.answer)
 let currentQuestion = {};
 let acceptingAnswers = true;
 let score = 0;
