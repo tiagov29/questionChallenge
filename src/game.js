@@ -3,6 +3,7 @@ const choices = Array.from(document.querySelectorAll(".choice-text"));
 const progressText = document.querySelector("#progressText");
 const scoreText = document.querySelector("#score");
 const progressBarFull = document.querySelector("#progressBarFull");
+const out = document.querySelector("#out");
 
 let currentQuestion = {};
 let acceptingAnswers = true;
@@ -226,6 +227,12 @@ let questions = {
   ],
 };
 
+out.addEventListener("click", (e) => {
+  localStorage.setItem("mostRecentScore", score);
+
+  return window.location.assign("/end.html");
+});
+
 const SCORE_POINTS = 100;
 const MAX_QUESTIONS = 5;
 
@@ -273,12 +280,14 @@ choices.forEach((choice) => {
     acceptingAnswers = false;
     const selectedChoice = e.target;
     const selectedAnswer = selectedChoice.dataset["number"];
-
     let classToApply =
       selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
-
     if (classToApply === "correct") {
       incrementScore(SCORE_POINTS);
+    } else {
+      localStorage.setItem("mostRecentScore", score);
+
+      return window.location.assign("/end.html");
     }
 
     selectedChoice.parentElement.classList.add(classToApply);
