@@ -1,0 +1,23 @@
+{
+  "name": "questionchallenge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tiagov29/questionChallenge.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tiagov29/questionChallenge/issues"
+  },
+  "homepage": "https://github.com/tiagov29/questionChallenge#readme",
+  "devDependencies": {
+    "vite": "^2.7.6"
+  }
+}
